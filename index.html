@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VenmoQR</title>
+    <script src="qrcode.min.js"></script>
+</head>
+<body>
+<div id="qrcode"></div>
+
+<input type="text" id="text" value="www.andreicozma.com">
+<input type="submit" onclick="generate()">
+
+<script type="text/javascript">
+    var textBox = document.getElementById("text");
+    var QR = new QRCode(document.getElementById("qrcode"), textBox.value);
+
+    function generate() {
+        QR.makeCode(textBox.value);
+    }
+    generate()
+</script>
+
+</body>
+</html>
