@@ -6,19 +6,34 @@
     <script src="qrcode.min.js"></script>
 </head>
 <body>
+<h2>Demo created by Andrei Cozma</h2>
 <div id="qrcode"></div>
-
-<input type="text" id="text" value="www.andreicozma.com">
+<p>Recepient:</p>
+<input type="text" id="recepient" value="acozma">
+<p>Dollar Amt:</p>
+<input type="number" id="dollar" value="5">
+<p>Memo:</p>
+<input type="text" id="memo" value="This is my memo">
+</br>
+</br>
 <input type="submit" onclick="generate()">
 
 <script type="text/javascript">
-    var textBox = document.getElementById("text");
-    var QR = new QRCode(document.getElementById("qrcode"), textBox.value);
+    var recepient = document.getElementById("recepient");
+    var dollar = document.getElementById("dollar");
+    var memo = document.getElementById("memo");
 
+    var QR = new QRCode(document.getElementById("qrcode"), "www.andreicozma.com");
     function generate() {
-        QR.makeCode(textBox.value);
+
+        console.log("Recepient: " + recepient.value)
+        console.log("Parsed Dollar: " + dollar.value)
+        console.log("Memo: " + memo.value)
+
+        var result = "venmo://paycharge?txn=pay&recipients="+ recepient.value + "&amount=" + dollar.value + "&note=" + memo.value;
+        console.log(result)
+        QR.makeCode(result);
     }
-    generate()
 </script>
 
 </body>
