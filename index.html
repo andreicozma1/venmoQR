@@ -24,13 +24,14 @@
     var memo = document.getElementById("memo");
 
     var QR = new QRCode(document.getElementById("qrcode"), "www.andreicozma.com");
+
     function generate() {
 
         console.log("Recepient: " + recepient.value)
         console.log("Parsed Dollar: " + dollar.value)
         console.log("Memo: " + memo.value)
 
-        var result = "venmo://paycharge?txn=pay&recipients="+ recepient.value + "&amount=" + dollar.value + "&note=" + memo.value;
+        var result = "venmo://paycharge?txn=pay&recipients=" + recepient.value + "&amount=" + dollar.value + "&note=" + memo.value;
         console.log(result)
         QR.makeCode(result);
     }
