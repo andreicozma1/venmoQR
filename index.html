@@ -23,7 +23,11 @@
     var dollar = document.getElementById("dollar");
     var memo = document.getElementById("memo");
 
-    var QR = new QRCode(document.getElementById("qrcode"), "www.andreicozma.com");
+    var QR = new QRCode(document.getElementById("qrcode"), {
+        text: "www.andreicozma.com",
+        width: 512,
+        height: 512
+    });
 
     function generate() {
 
